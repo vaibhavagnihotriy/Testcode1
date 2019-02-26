@@ -1,0 +1,67 @@
+package Ripieno;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Ripieno {
+
+	public static void main (String[] args)
+	{
+	
+		System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://52.172.157.85/");
+        driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		//login
+		driver.findElement(By.id("LoginId")).click();
+		driver.findElement(By.id("LoginId")).sendKeys("sysadmin@hcl.com");
+		driver.findElement(By.id("Password")).click();
+		driver.findElement(By.id("Password")).sendKeys("India@123");
+		//driver.findElement(By.("col-md-12")).click();
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		
+		//open create ISV screen
+		driver.findElement(By.xpath("//a[@href='#Tenant']")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Create ISV')]")).click();
+		
+		//ISV Contact details //create ISV screen
+		driver.findElement(By.xpath("//input[@id='ShortName']")).sendKeys("TestFire1");
+		driver.findElement(By.xpath("//input[@id='TenantName']")).sendKeys("TestingFire phase1");
+		driver.findElement(By.xpath("//input[@id='BusinessContactName']")).sendKeys("prashant");
+		driver.findElement(By.xpath("//input[@id='EmailId']")).sendKeys("prashantkumar.si@hcl.com");
+		driver.findElement(By.xpath("//input[@id='BillingContactName']")).sendKeys("Ritesh");
+		driver.findElement(By.xpath("//input[@id='BillingContactEmail']")).sendKeys("RiteshTr@hcl.com");
+		driver.findElement(By.xpath("//input[@id='TechnicalContactName']")).sendKeys("Pratham");
+		driver.findElement(By.xpath("//input[@id='TechnicalContactEmail']")).sendKeys("Prathameshwar.Singh@hcl.com");
+		
+		//HCl contact details //create ISV screen
+		driver.findElement(By.xpath("//input[@id='HclBusinessContactName']")).sendKeys("Vipin");
+		driver.findElement(By.xpath("//input[@id='HclBusinessContactEmail']")).sendKeys("vipinkr@hcl.com");
+	    driver.findElement(By.xpath("//input[@id='HclTechnicalContactName']")).sendKeys("Pratham");
+		driver.findElement(By.xpath("//input[@id='HclTechnicalContactEmail']")).sendKeys("Prathameshwar.Singh@hcl.com");
+		
+		//Address and other details //create ISV screen
+		driver.findElement(By.xpath("//input[@id='Address1']")).sendKeys("Address1");
+		driver.findElement(By.xpath("//span[@id='select2-CountryId-container']")).click();;
+		//driver.findElement(By.xpath("//input[@id='HclBusinessContactName']")).sendKeys("Vipin");
+		driver.findElement(By.xpath("//input[@id='City']")).sendKeys("Noida");
+		driver.findElement(By.xpath("//input[@id='PinCode']")).sendKeys("201301");
+		driver.findElement(By.xpath("//input[@id='ContactNumber']")).sendKeys("9991119991");
+		driver.findElement(By.xpath("//input[@id='TaxNumber']")).sendKeys("99TA2233AD");
+		driver.findElement(By.xpath("//input[@id='Website']")).sendKeys("ww.hcl.com");
+		driver.findElement(By.xpath("//input[@id='IsMSAAssigned']")).click();
+		driver.findElement(By.xpath("//input[@id='TenantCreateButton']")).click();
+		
+		
+		{ 
+			System.out.println(driver);
+		}
+	}
+}
+	
+	
